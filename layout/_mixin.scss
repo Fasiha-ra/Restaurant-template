@@ -1,0 +1,6 @@
+@mixin padding-bottom{
+    padding-bottom: 20px;
+}
+@mixin border-radius($radius){
+    border-radius: $radius;
+}

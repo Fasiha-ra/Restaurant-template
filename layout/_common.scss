@@ -1,0 +1,795 @@
+@import "variables";
+@import "mixin";
+
+//  ----- Banner Section Start-------
+.banner-section {
+  background-color: rgba(94, 64, 153, 0.1);
+  padding-bottom: 100px;
+  position: relative;
+
+  .banner-wrap {
+    padding-top: 30px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width:993px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .banner-holder {
+      max-width: 800px;
+      animation: fadeInBanner 4s ease-in-out;
+
+      @media screen and (min-width:993px) {
+        max-width: 540px;
+      }
+
+      &::before {
+        content: url('../images/image-8.png');
+        display: none;
+
+        @media screen and (min-width:576px) {
+          display: block;
+          width: 200px;
+          height: 58px;
+          position: absolute;
+          left: 315px;
+          top: 50px;
+        }
+
+        @media screen and (min-width:993px) {
+          left: 399px;
+          top: 89px;
+        }
+
+        @media screen and (min-width:1201px) {
+          left: 494px;
+        }
+      }
+
+      .banner-logo {
+        width: 240px;
+        height: 57px;
+        @include padding-bottom;
+
+        @media screen and (min-width:576px) {
+          width: 267px;
+        }
+      }
+
+      .banner-title {
+        padding-top: 30px;
+        @include padding-bottom;
+
+        h1 {
+          line-height: 35px;
+          font-weight: 500;
+          letter-spacing: 5px;
+
+          @media screen and (min-width:577px) {
+            line-height: 60px;
+          }
+
+          @media screen and (min-width:993px) {
+            line-height: 86px;
+          }
+        }
+
+        span {
+          font-weight: 800;
+        }
+      }
+
+      .banner-text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        @include padding-bottom;
+
+        img {
+          width: 60px;
+          height: 60px;
+        }
+
+        p {
+          line-height: 28px;
+          font-style: italic;
+        }
+      }
+
+      .banner-btn {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+
+        @media screen and (min-width:576px) {
+          flex-direction: row;
+          gap: 20px;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .primary-btn:hover {
+          background-color: $secondary-color;
+          transition: all ease-in-out .3s;
+          box-shadow: 0 0 10px 0 $primary-color inset, 0 0 5px 2px $primary-color;
+        }
+
+        .secondary-btn:hover {
+          background-color: $white-color;
+          transition: all ease-in-out .3s;
+          box-shadow: 0 0 5px 0 $secondary-color inset, 0 0 5px 2px $secondary-color;
+        }
+      }
+    }
+
+    .banner-img {
+      max-width: 650px;
+      margin: 0 auto;
+      animation: fadeInBanner 5s ease-in-out;
+
+      @media screen and (min-width:769px) {
+        width: 717px;
+      }
+    }
+  }
+
+  @keyframes fadeInBanner {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+//  ----- Banner Section End-------
+
+//  ----- Frame Section Start-------
+.frame-section {
+  margin-top: -64px;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 1;
+
+  .frame-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.1);
+    background-color: $white-color;
+    @include border-radius(30px);
+
+    .frame-card {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+      padding: 30px 20px 20px 20px;
+
+      @media screen and (min-width:576px) {
+        flex-direction: row;
+      }
+
+      .frame-img {
+        background-color: rgba(94, 64, 153, 0.1);
+        @include border-radius(100%);
+        padding: 20px;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          padding: 20px;
+          right: 0;
+          bottom: 0;
+          background: $secondary-color;
+          border-radius: 100%;
+          transform: scale(1.5);
+          transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        &:hover::before {
+          transform: scale(1);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        &:hover img {
+          filter: brightness(1) invert(1);
+          transition: filter 0.4s ease-in-out;
+        }
+
+        img {
+          width: 46px;
+          height: 48px;
+
+          @media screen and (min-width:576px) {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+
+      .frame-title {
+        width: 223px;
+
+        h4 {
+          font-style: italic;
+          text-align: center;
+
+          @media screen and (min-width:576px) {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+//  ----- Frame Section End-------
+
+//  ----- Category Slider Section Start-------
+.category {
+  .swiper-container {
+    max-width: 1100px;
+    padding-top: 50px;
+    position: relative;
+
+    .swiper-slide {
+      width: 180px;
+
+      @media screen and (min-width:376px) {
+        width: 260px;
+      }
+
+      @media screen and (min-width:577px) {
+        width: 350px;
+      }
+
+      @media screen and (min-width:993px) {
+        width: 400px;
+      }
+
+
+      img {
+        width: 180px;
+        height: 200px;
+
+        @media screen and (min-width:376px) {
+          width: 260px;
+          height: 260px;
+        }
+
+        @media screen and (min-width:577px) {
+          width: 350px;
+          height: 320px;
+        }
+
+        @media screen and (min-width:993px) {
+          width: 400px;
+        }
+      }
+
+      .slide-2 {
+        position: absolute;
+        left: -23px;
+      }
+    }
+
+    .swiper-pagination-bullet {
+      background-color: #000;
+      width: 12px;
+      height: 12px;
+    }
+
+    .swiper-button-prev {
+      width: 27px;
+      height: 10px;
+      position: absolute;
+      top: 448px;
+      left: 438px;
+
+      &::before {
+        content: url(../images/arrow-left.png);
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: -232px;
+        left: -387px;
+
+        @media screen and (min-width: 576px) {
+          top: -177px;
+          left: -288px;
+        }
+
+        @media screen and (min-width: 768px) {
+          top: -115px;
+          left: -198px;
+        }
+
+        @media screen and (min-width: 992px) {
+          left: -117px;
+        }
+
+        @media screen and (min-width: 1200px) {
+          left: -32px;
+        }
+      }
+    }
+
+    .swiper-button-next {
+      width: 27px;
+      height: 10px;
+      position: absolute;
+      top: 448px;
+      right: 438px;
+
+      &::after {
+        content: url(../images/arrow-right.png);
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: -230px;
+        left: 326px;
+
+        @media screen and (min-width: 576px) {
+          top: -177px;
+          left: 229px;
+        }
+
+        @media screen and (min-width: 768px) {
+          top: -115px;
+          left: 140px;
+        }
+
+        @media screen and (min-width: 992px) {
+
+          left: 57px;
+        }
+
+        @media screen and (min-width: 1200px) {
+          left: -32px;
+        }
+      }
+    }
+  }
+}
+
+//  ----- Category Slider Section Start-------
+
+//  ----- Slider Section Start-------
+.slider-section {
+  padding-top: 80px;
+
+  .slider {
+    max-width: 1440px;
+    overflow: hidden;
+
+    .slider-holder {
+      position: relative;
+
+      img {
+        height: 244px;
+
+        @media screen and (min-width:376px) {
+          height: 333px;
+        }
+
+        @media screen and (min-width:577px) {
+          height: 449px;
+        }
+      }
+
+      .slider-text {
+        max-width: 406px;
+        position: absolute;
+        color: $white-color;
+        top: 32px;
+        left: 28px;
+
+        @media screen and (min-width:376px) {
+          top: 87px;
+          left: 98px;
+        }
+
+        @media screen and (min-width:577px) {
+          top: 108px;
+        }
+
+        @media screen and (min-width:769px) {
+          top: 80px;
+        }
+
+        h1 {
+          line-height: 2px;
+
+          @media screen and (min-width:376px) {
+            line-height: 17px;
+          }
+
+          @media screen and (min-width:577px) {
+            line-height: 60px;
+          }
+
+          @media screen and (min-width:769px) {
+            line-height: 95px;
+          }
+        }
+
+        h2 {
+          line-height: 54px;
+        }
+      }
+    }
+
+    .slick-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 50px 0;
+      bottom: -33px;
+
+      @media screen and (min-width:769px) {
+        bottom: -22px;
+      }
+
+      @media screen and (min-width:1441px) {
+        bottom: 3px;
+      }
+    }
+
+    li {
+      margin: 0 8px;
+      background-color: $black-color;
+      @include border-radius(30%);
+      width: 10px;
+      height: 10px;
+    }
+
+    button {
+      border: none;
+      @include border-radius(30%);
+      text-indent: -9999px;
+    }
+
+    li.slick-active button {
+      width: 30px;
+      height: 10px;
+      background-color: $white-color;
+    }
+  }
+}
+
+//  ----- Slider Section End-------
+
+//  -----Item Section Start-------
+.items {
+  padding-top: 60px;
+  text-align: center;
+  position: relative;
+
+  .items-bg-img {
+    position: absolute;
+    max-width: 600px;
+    z-index: -1;
+    right: 0;
+    display: none;
+
+    @media screen and (min-width:576px) {
+      top: -23px;
+      display: block;
+    }
+
+    @media screen and (min-width:993px) {
+      bottom: 47px;
+    }
+  }
+
+  .items-bg-img-bottom {
+    position: absolute;
+    max-width: 900px;
+    display: none;
+    z-index: -1;
+
+    @media screen and (min-width:576px) {
+      left: -29px;
+      display: block;
+    }
+
+    @media screen and (min-width:993px) {
+      top: -268px;
+    }
+  }
+
+  .items-holder {
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    @media screen and (min-width:1200px) {
+      flex-wrap: nowrap;
+    }
+
+    .items-card {
+      background-color: $white-color;
+      width: 232px;
+      height: 315px;
+      box-shadow: 0 4px 4px 4px rgba(0, 0, 0, 0.1);
+      @include border-radius(30px);
+      position: relative;
+
+      @media screen and (min-width:576px) {
+        width: 250px;
+        height: 330px;
+      }
+
+      @media screen and (min-width:768px) {
+        width: 277px;
+        height: 354px;
+      }
+
+      .card-img {
+        margin: 0 auto;
+        padding: 15px;
+        @include padding-bottom;
+         }
+
+      figure {
+        position: absolute;
+        bottom: 80%;
+        right: 24px;
+        z-index: 1;
+        border: 1px solid lightgray;
+        background-color: $white-color;
+        @include border-radius(100%);
+        padding: 7px;
+        cursor: pointer;
+
+        @media screen and (min-width:768px) {
+          padding: 10px;
+        }
+
+        &:hover {
+          background-color: $secondary-color;
+          border: 1px solid $secondary-color;
+        }
+      }
+
+      .offer-btn {
+        position: absolute;
+        z-index: 1;
+        bottom: 80%;
+        left: 26px;
+
+        &:hover {
+          animation: rubberBand 1s;
+        }
+
+        button {
+          padding: 10px 0;
+          font-size: 12px;
+          background-color: $secondary-color;
+          color: $white-color;
+          width: 122px;
+
+          @media screen and (min-width:576px) {
+            font-size: 14px;
+          }
+
+          @media screen and (min-width:768px) {
+            width: 121px;
+          }
+        }
+      }
+
+      .card-holder {
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 10px;
+
+        @media screen and (min-width:768px) {
+          padding-top: 20px;
+        }
+
+        .card-price {
+          text-align: left;
+
+          .price {
+            display: flex;
+
+            h5 {
+              color: $primary-color;
+            }
+          }
+        }
+
+        .card-btn {
+          button {
+            width: 106px;
+            font-size: 12px;
+            padding: 8px;
+
+            @media screen and (min-width: 576px) {
+              padding: 10px;
+            }
+
+            @media screen and (min-width: 768px) {
+              font-size: 14px;
+            }
+
+            &:hover {
+              background-color: $secondary-color;
+              transition: all ease-in-out .3s;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+//  -----Item Section End-------
+
+//  -----Download Section Start-------
+.download-section {
+  padding-bottom: 50px;
+
+  .download-holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .download-heading {
+      width: 492px;
+
+      .download-text {
+        h1 {
+
+          @media screen and (min-width:577px) {
+            line-height: 30px;
+          }
+
+          @media screen and (min-width:769px) {
+            line-height: 60px;
+          }
+        }
+
+        h2 {
+          @media screen and (min-width:577px) {
+            line-height: 60px;
+          }
+        }
+      }
+
+      .google-btn {
+        @include padding-bottom;
+        display: flex;
+        gap: 6px;
+
+        @media screen and (min-width:577px) {
+          gap: 20px;
+        }
+
+        button {
+          @include border-radius(10px);
+
+          img {
+            width: 237px;
+          }
+        }
+      }
+
+      .download-btn {
+        button {
+          width: 100px;
+          height: 40px;
+          font-size: 14px;
+          padding: 0 3px;
+
+          &:hover {
+            animation: rubberBand 1s;
+          }
+
+          @media screen and (min-width:376px) {
+            font-size: 15px;
+          }
+
+          @media screen and (min-width:577px) {
+            width: 147px;
+            height: 47px;
+            font-size: 16px;
+          }
+
+          @media screen and (min-width:769px) {
+            width: 227px;
+            height: 63px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .download-img {
+      animation: updown 2s infinite;
+      position: relative;
+      width: 758px;
+    }
+  }
+
+  @keyframes updown {
+    from {
+      top: 0px;
+    }
+
+    to {
+      top: 30px;
+    }
+  }
+}
+
+//  -----Download Section End-------
+
+//-------Component-----
+.items-title {
+  text-align: center;
+
+  h5 {
+    color: $primary-color;
+    padding-bottom: 10px;
+
+    @media screen and (min-width:576px) {
+      @include padding-bottom;
+    }
+  }
+
+  h3 {
+    @include padding-bottom;
+  }
+}
+
+//-------Animations------
+@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.25, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1, 1.05, 0.95);
+  }
+
+  to {
+    transform: scale3d(1.25, 0.85, 1);
+  }
+}
